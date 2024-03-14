@@ -1,0 +1,19 @@
+<h2>DELETE a User</h2>
+
+
+<form  method="post" autocomplete="off">
+    {% csrf_token %}
+
+
+    <p> Are you sure want to delete " {{object}} " ? </p>
+
+    <a href="/">Go back</a>
+    <br><br>
+
+    <input type="submit" value="DETETE"/>
+
+    <br><br>
+
+
+</form>
+

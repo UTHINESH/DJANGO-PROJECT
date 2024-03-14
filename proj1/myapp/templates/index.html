@@ -1,0 +1,98 @@
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMC</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    
+<center>
+
+    <img style="width: 200px;" src="{% static 'images/cat.jpeg' %}" />
+    <h1>
+       <b> these are our userlist</b>
+    </h1>
+
+    <table border="1 " >
+        <th>user_id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>update user</th>
+            <th>delete user</th>
+        <tr>
+            {%for u in userlist %}
+            <td>
+                {{u.user_id}}
+            </td>
+            <td>
+                {{u.name}}
+            </td>
+            <td>
+                {{u.age}}
+            </td>
+            <td>
+                <a href="{% url 'update-user' u.user_id %}">click</a>
+            </td>
+            <td>
+                <a href="{% url 'delete-user' u.user_id %}">click</a>
+            </td>
+        </tr>
+        {% endfor %}
+        
+
+
+    </table>
+    <br><a href="/create-user">click here to create new user </a>
+<hr>
+    <h1>
+        <b>these are our productlist</b>
+    </h1>
+    <table border="1">
+        <th>p_id</th>
+        <tr>
+            {%for p in productlist %}
+            <td>
+                <a href="prod_details/{{p.p_id}}">{{p.p_id}} </a>
+            </td>
+            
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <!-- <hr> -->
+    <!-- <h1>
+        <b>these are our images</b>
+    </h1>
+    <table border="1">
+        <th>profile_id</th>
+        <tr>
+            {%for p in profilelist %}
+            <td>
+                <a href="image/{{p.profile_id}}">{{p.profile_id}} </a>
+            </td>
+            
+        </tr>
+        {% endfor %}
+
+    </table> -->
+
+
+<hr>
+<a href="{% url 'register' %}">Registartion</a><br>
+<a href="{% url 'my-login' %}">login</a><br>
+<a href="admin/">admin</a><br>
+<hr>
+
+</center>
+
+
+<br>
+<script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
+
+

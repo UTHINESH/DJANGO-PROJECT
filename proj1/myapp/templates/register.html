@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="icon" href="emc.png">
+</head>
+<body>
+
+
+    
+    <h2>Registartion Form</h2>
+
+
+<form  method="post" autocomplete="off">
+    {% csrf_token %}
+
+
+    {{form.as_p}}
+
+    <input type="submit" value="Submit"/>
+
+
+</form>
+
+<hr>
+<a href="/">Home</a>
+<hr>
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,14 @@
+<h2>This is our User form</h2>
+
+
+<form  method="post" autocomplete="off">
+    {% csrf_token %}
+
+    {{form.title}}
+
+    {{form.as_p}}
+
+    <input type="submit" value="Submit"/>
+
+
+</form>
