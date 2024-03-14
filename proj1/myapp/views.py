@@ -1,12 +1,21 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.template import loader
+
 from .models import Products
 # from .models import Profile
 from .models import User as user1
+
 from .forms import UserFrom,CreateUserForm,Loginform
+
+
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate,login
+
+from django.contrib.auth.decorators import login_required
+
+
+
 
 
 
@@ -177,9 +186,30 @@ def my_login(request):
 
                 auth.login(request, user)
 
-                return HttpResponse('You have logged in!')
+                # return HttpResponse('You have logged in!')
+                return redirect("dashboard")
 
 
     context ={'form' : form}
 
     return render(request,'my-login.html',context=context)
+
+
+#  Dashboard page
+
+@login_required(login_url='my-login')
+def dashboard(request):
+
+    return render(request,'dashboard.html')
+
+
+
+
+# logout a django user
+
+def user_logout(request):
+
+    auth.logout(request)
+
+    return redirect ("")
+
